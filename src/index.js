@@ -13,12 +13,12 @@ searchForm.addEventListener("submit", async (event) => {
   const location = locationInput.value.trim();
   if (!location) return;
 
-  currentLocation = location;
   const unit = toggleUnits.checked ? "us" : "metric";
 
-  const weather = await getWeather(location, unit);
+  const weather = await setTimeout(() => getWeather(location, unit), 5000);
   if (!weather) return;
 
+  currentLocation = location;
   fillWeatherData(weather, unit);
 });
 

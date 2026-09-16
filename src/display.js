@@ -38,6 +38,7 @@ export function fillWeatherData(
   unit,
 ) {
   let tempUnit = unit === "metric" ? "°C" : "°F";
+  forecasts.replaceChildren();
 
   daysArr.forEach((day, index) => {
     const forecast = document.createElement("div");

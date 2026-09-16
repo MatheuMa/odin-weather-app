@@ -25,7 +25,6 @@ html[data-period="evening"] {
 
 body, input, button {
   font-family: "Roboto", sans-serif;
-  overflow: hidden;
 }
 
 input, button {
@@ -189,4 +188,15 @@ button {
 
 body {
   padding: 20px;
+}
+
+.loading-dialog {
+  color: white;
+  font-size: 2rem;
+  border: none;
+  background: transparent;
+}
+
+.loading-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
 }
