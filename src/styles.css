@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background: url("./assets/images/weather-day.png") center / cover no-repeat fixed;
+}
+
+body, input, button {
+  font-family: "Roboto", sans-serif;
+  overflow: hidden;
+}
+
+input, button {
+  font-size: 1rem;
+}
+
+#location-input {
+  border-radius: 999px;
+  border: 1px solid #999;
+  padding: 8px;
+  width: clamp(200px, 30vw, 600px);
+}
+
+#temp-units {
+  margin-right: 5px;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(10px, 2vh, 40px);
+}
+
+.top-search {
+  display: flex;
+  flex-direction: column;
+}
+
+.units-div {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.units-div label {
+  color: white;
+  text-shadow: 0 0 5px black;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.weather-board {
+  height: 500px;
+  margin-top: clamp(40px, 8vh, 100px);
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 10px;
+}
+
+.weather-today p {
+  font-size: 1rem;
+}
+
+.weather-today h2 {
+  font-size: clamp(1.5rem, 4vh, 2rem);
+  text-align: center;
+}
+
+.weather-today h3,
+.weather-today .today-UV-p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.5rem, 4vh, 3rem);
+  height: clamp(20px, 10vh, 100px);
+}
+
+.weather-today {
+  color: white;
+  text-shadow: 0 0 5px black;
+  padding: 60px 30px;
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px black;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(40px, 10vh, 80px);
+}
+
+.weather-today > div {
+  padding: 20px;
+}
+
+.today-temp,
+.today-feelslike {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+}
+
+.today-data{
+  width: 200px;
+  text-align: center;
+  padding-block: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 10px;
+}
+
+.today-data p {
+  font-size: 1.2rem;
+}
+
+.today-data p.row-title {
+  font-weight: 700;
+}
+
+.forecasts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #333;
+  overflow-y: auto;
+  border-radius: 30px;
+}
+
+.forecast {
+  border-radius: 25px;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 30px;
+}
+
+button {
+  border-radius: 999px;
+  border: none;
+  color: #eee;
+  background-color: #333;
+  padding: 9px 15px;
+}
+
+body {
+  padding: 20px;
+}

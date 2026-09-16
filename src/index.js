@@ -1,3 +1,4 @@
+import "./styles.css";
 function createDay(
   feelslikemax,
   feelslikemin,
@@ -60,7 +61,7 @@ const getWeather = async (location, unit) => {
 
     const days = responseJSON.days;
     const daysArr = [];
-    for (let i = 0; i < Math.min(4, days.length); i++) {
+    for (let i = 0; i < Math.min(7, days.length); i++) {
       daysArr.push(
         createDay(
           days[i].feelslikemax,
