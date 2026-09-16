@@ -7,7 +7,20 @@
 }
 
 html {
-  background: url("./assets/images/weather-day.png") center / cover no-repeat fixed;
+  background: url("./assets/images/weather-day.png")
+    center / cover no-repeat fixed;
+}
+
+html[data-period="morning"] {
+  background-image: url("./assets/images/weather-morning.png");
+}
+
+html[data-period="day"] {
+  background-image: url("./assets/images/weather-day.png");
+}
+
+html[data-period="evening"] {
+  background-image: url("./assets/images/weather-evening.png");
 }
 
 body, input, button {
@@ -17,6 +30,10 @@ body, input, button {
 
 input, button {
   font-size: 1rem;
+}
+
+button {
+  cursor: pointer;
 }
 
 #location-input {
@@ -48,7 +65,7 @@ input, button {
 
 .units-div label {
   color: white;
-  text-shadow: 0 0 5px black;
+  text-shadow: 0 0 3px black;
 }
 
 .search-form {
@@ -56,9 +73,15 @@ input, button {
   flex-direction: column;
 }
 
+.location {
+   padding-left: 40px;
+   color: white;
+   text-shadow: 1px 1px 5px black;
+}
+
 .weather-board {
   height: 500px;
-  margin-top: clamp(40px, 8vh, 100px);
+  margin-top: 20px;
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 10px;
@@ -69,7 +92,7 @@ input, button {
 }
 
 .weather-today h2 {
-  font-size: clamp(1.5rem, 4vh, 2rem);
+  font-size: clamp(1rem, 4vh, 1.5rem);
   text-align: center;
 }
 
@@ -107,7 +130,7 @@ input, button {
 }
 
 .today-data{
-  width: 200px;
+  width: clamp(150px, 5vw, 200px);
   text-align: center;
   padding-block: 20px;
   display: grid;
@@ -134,9 +157,26 @@ input, button {
 }
 
 .forecast {
+  font-weight: 600;
+  color: white;
+  text-shadow: 1px 1px 5px black;
   border-radius: 25px;
   background-color: rgba(0, 0, 0, 0.4);
-  padding: 30px;
+  padding: 15px 30px 30px;
+}
+
+.forecast-stats {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.forecast-stats > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
 }
 
 button {
