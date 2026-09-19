@@ -12,8 +12,6 @@ export const getWeather = async (location, unit) => {
 
     const responseJSON = await response.json();
 
-    console.log(responseJSON);
-
     const currentConditions = responseJSON.currentConditions;
     const currentFeelslike = currentConditions.feelslike;
     const currentTemp = currentConditions.temp;

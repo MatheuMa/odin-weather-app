@@ -24,6 +24,8 @@ const forecasts = document.querySelector(".forecasts");
 const todayUVAvg = document.querySelector(".today-UV .today-UV-p");
 const location = document.querySelector(".location");
 
+const loadingDialog = document.querySelector(".loading-dialog");
+
 export function fillWeatherData(
   {
     daysArr,
@@ -106,5 +108,13 @@ export function fillWeatherData(
     html.dataset.period = "morning";
   } else {
     html.dataset.period = "day";
+  }
+}
+
+export function loading(isLoading) {
+  if (isLoading) {
+    if (!loadingDialog.open) loadingDialog.showModal();
+  } else {
+    loadingDialog.close();
   }
 }

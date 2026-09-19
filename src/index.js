@@ -1,11 +1,25 @@
 import "./styles.css";
 import { getWeather } from "./api.js";
-import { fillWeatherData } from "./display.js";
+import { fillWeatherData, loading } from "./display.js";
 
 const searchForm = document.querySelector(".search-form");
 const locationInput = document.querySelector("#location-input");
 const toggleUnits = document.querySelector("#toggle-units");
 let currentLocation = "";
+
+async function updateWeather(location, unit) {
+  loading(true);
+
+  try {
+    const weather = await getWeather(location, unit);
+    if (!weather) return;
+
+    currentLocation = location;
+    fillWeatherData(weather, unit);
+  } finally {
+    loading(false);
+  }
+}
 
 searchForm.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -14,19 +28,11 @@ searchForm.addEventListener("submit", async (event) => {
   if (!location) return;
 
   const unit = toggleUnits.checked ? "us" : "metric";
-
-  const weather = await setTimeout(() => getWeather(location, unit), 5000);
-  if (!weather) return;
-
-  currentLocation = location;
-  fillWeatherData(weather, unit);
+  await updateWeather(location, unit);
 });
 
 toggleUnits.addEventListener("change", async () => {
   if (!currentLocation) return;
   const unit = toggleUnits.checked ? "us" : "metric";
-  const weather = await getWeather(currentLocation, unit);
-
-  if (!weather) return;
-  fillWeatherData(weather, unit);
+  await updateWeather(currentLocation, unit);
 });
